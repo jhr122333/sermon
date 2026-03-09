@@ -44,16 +44,6 @@ sermon/
 
 ---
 
-## 🗓️ Sermon Archive
-
-| 날짜 | 제목 | 성경 구절 |
-|------|------|-----------|
-| Mar 8, 2026 | "God is Our Shepherd" | Psalm 23:1 |
-| Mar 1, 2026 | "The Son Who Was Sent for Us" | Matthew 21:45 |
-| Feb 22, 2026 | "God Uses Anyone Who Listens" | Judges 4:8 |
-
----
-
 ## 🔄 How to Update Weekly
 
 매주 새 설교가 생기면:
@@ -72,7 +62,3 @@ sermon/
 - Claude AI (코드 생성 협업)
 
 ---
-
-## 📬 Contact
-
-JESS 교역자 문의: [교회 연락처]
