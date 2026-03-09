@@ -2,7 +2,7 @@
 
 **Joongang English Sunday School** — Children's Weekly Sermon Archive
 
-🔗 **Live Site:** [https://jhr122333.github.io/sermon/](https://jhr122333.github.io/sermon/)
+🔗 **Live Site:** [https://jhr122333.github.io/[jess-archive]/](https://jhr122333.github.io/jess-archive/)
 
 ---
 
