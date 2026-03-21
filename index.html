@@ -98,7 +98,7 @@
   <div class="sermons-grid" id="sermonsGrid">
 
     <!-- 최신이 맨 위 -->
-    <a class="sermon-card" href="sermon_mar29.html" style="animation-delay:0.1s">
+    <a class="sermon-card" href="sermon_mar29.html" style="animation-delay:0.1s" data-visible-from="2026-03-29">
       <div class="latest-badge">✨ Latest</div>
       <div class="card-date-block">
         <div class="card-month">Mar</div>
@@ -234,8 +234,18 @@
 </div>
 
 <script>
+  const today = new Date().toISOString().slice(0, 10);
   const cards = document.querySelectorAll('.sermon-card');
-  document.getElementById('totalCount').textContent = cards.length;
+  let visibleCount = 0;
+  cards.forEach(card => {
+    const from = card.getAttribute('data-visible-from');
+    if (from && today < from) {
+      card.style.display = 'none';
+    } else {
+      visibleCount++;
+    }
+  });
+  document.getElementById('totalCount').textContent = visibleCount;
 </script>
 </body>
 </html>

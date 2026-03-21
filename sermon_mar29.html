@@ -119,6 +119,9 @@
   <a class="pdf-btn" href="March_29th.pdf" download="SermonTakeaways_Mar29.pdf">📄 Download Sermon Takeaways PDF</a>
 </div>
 <script>
+if (new Date().toISOString().slice(0,10) < '2026-03-29') {
+  document.body.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;min-height:100vh;font-family:Nunito,sans-serif;text-align:center;padding:40px"><div><div style="font-size:48px;margin-bottom:16px">🔒</div><h2 style="color:#3d2c6e;font-size:24px;margin-bottom:8px">3월 29일에 공개됩니다</h2><p style="color:#7a6a9e;font-size:16px;margin-bottom:24px">This content will be available on March 29th, 2026.</p><a href="index.html" style="background:linear-gradient(135deg,#6b9fff,#9b6dff);color:white;padding:12px 24px;border-radius:20px;text-decoration:none;font-weight:800">← Back to All Sermons</a></div></div>';
+}
 const audio=document.getElementById('audio');
 const progressFill=document.getElementById('progressFill');
 const currentTimeEl=document.getElementById('currentTime');
