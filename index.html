@@ -33,8 +33,8 @@
   .stats-row { display:flex; gap:12px; margin-bottom:32px; animation:fadeUp 0.6s ease 0.2s both; }
   .stat-card { flex:1; background:white; border-radius:18px; padding:16px; text-align:center; box-shadow:0 3px 14px rgba(100,80,180,0.08); }
   .stat-num { font-family:'Fredoka One',cursive; font-size:28px; color:var(--text); line-height:1; }
-  .stat-label { font-size:11px; color:var(--soft); font-weight:700; margin-top:4px; }
-  .section-title { font-family:'Fredoka One',cursive; font-size:18px; color:var(--text); margin-bottom:16px; display:flex; align-items:center; gap:8px; animation:fadeUp 0.6s ease 0.3s both; }
+  .stat-label { font-size:13px; color:var(--soft); font-weight:700; margin-top:4px; }
+  .section-title { font-family:'Fredoka One',cursive; font-size:20px; color:var(--text); margin-bottom:16px; display:flex; align-items:center; gap:8px; animation:fadeUp 0.6s ease 0.3s both; }
   .sermons-grid { display:flex; flex-direction:column; gap:14px; }
   .sermon-card { background:white; border-radius:22px; padding:20px 22px; box-shadow:0 4px 18px rgba(100,80,180,0.08); text-decoration:none; color:inherit; display:flex; align-items:center; gap:16px; transition:transform 0.2s,box-shadow 0.2s; animation:fadeUp 0.5s ease both; position:relative; overflow:hidden; }
   .sermon-card::before { content:''; position:absolute; left:0; top:0; bottom:0; width:4px; border-radius:22px 0 0 22px; }
@@ -50,10 +50,10 @@
   .card-day { font-family:'Fredoka One',cursive; font-size:26px; color:var(--text); line-height:1; }
   .card-year { font-size:10px; color:var(--soft); font-weight:700; }
   .card-content{flex:1}
-  .card-title { font-family:'Fredoka One',cursive; font-size:17px; color:var(--text); margin-bottom:4px; line-height:1.2; }
-  .card-verse { font-size:12px; color:var(--soft); font-weight:600; font-style:italic; margin-bottom:6px; }
+  .card-title { font-family:'Fredoka One',cursive; font-size:19px; color:var(--text); margin-bottom:4px; line-height:1.2; }
+  .card-verse { font-size:13px; color:var(--soft); font-weight:600; font-style:italic; margin-bottom:6px; }
   .card-tags{display:flex;gap:6px;flex-wrap:wrap}
-  .tag { font-size:10px; font-weight:800; padding:3px 9px; border-radius:10px; letter-spacing:0.3px; }
+  .tag { font-size:12px; font-weight:800; padding:4px 10px; border-radius:10px; letter-spacing:0.3px; }
   .tag-audio{background:#ede8ff;color:#7c4dff}
   .tag-pdf{background:#e8f5e9;color:#2e7d32}
   .tag-prayer{background:#fff8e1;color:#f57f17}
@@ -98,8 +98,26 @@
   <div class="sermons-grid" id="sermonsGrid">
 
     <!-- 최신이 맨 위 -->
-    <a class="sermon-card" href="sermon_mar15.html" style="animation-delay:0.1s">
+    <a class="sermon-card" href="sermon_mar22.html" style="animation-delay:0.1s">
       <div class="latest-badge">✨ Latest</div>
+      <div class="card-date-block">
+        <div class="card-month">Mar</div>
+        <div class="card-day">22</div>
+        <div class="card-year">2026</div>
+      </div>
+      <div class="card-content">
+        <div class="card-title">"Say 'Yes' to God for Real"</div>
+        <div class="card-verse">Matthew 21:29 · Two Sons & True Obedience</div>
+        <div class="card-tags">
+          <span class="tag tag-audio">🎧 Audio</span>
+          <span class="tag tag-pdf">📄 PDF</span>
+          <span class="tag tag-prayer">🙏 Prayer</span>
+        </div>
+      </div>
+      <div class="arrow">›</div>
+    </a>
+
+    <a class="sermon-card" href="sermon_mar15.html" style="animation-delay:0.15s">
       <div class="card-date-block">
         <div class="card-month">Mar</div>
         <div class="card-day">15</div>
@@ -117,7 +135,7 @@
       <div class="arrow">›</div>
     </a>
 
-    <a class="sermon-card" href="sermon_mar8.html" style="animation-delay:0.15s">
+    <a class="sermon-card" href="sermon_mar8.html" style="animation-delay:0.2s">
       <div class="card-date-block">
         <div class="card-month">Mar</div>
         <div class="card-day">08</div>
