@@ -166,7 +166,7 @@ function formatTime(s){if(!s||isNaN(s))return'0:00';return Math.floor(s/60)+':'+
 
   // 완료 버튼
   var doneBtn = document.createElement('button');
-  doneBtn.textContent = '🍎 사과 받기! Get an Apple!';
+  doneBtn.innerHTML = '🍎 Get an Apple!<br><span style="font-size:0.75em;opacity:0.85">사과 받기!</span>';
   doneBtn.disabled = true;
   doneBtn.style.cssText = "display:block;width:100%;margin:16px 0 32px;padding:18px;border-radius:20px;border:none;background:linear-gradient(135deg,#9b6dff,#6b9fff);color:#fff;font-family:'Fredoka One',cursive;font-size:20px;cursor:not-allowed;opacity:0.4;transition:all 0.3s;box-shadow:0 4px 14px rgba(107,80,200,0.3);";
   doneBtn.onclick = function(){
