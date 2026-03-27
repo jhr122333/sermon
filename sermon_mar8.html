@@ -131,5 +131,105 @@ function seek(e){const bar=document.getElementById('progressBar');const rect=bar
 function setSpeed(speed){audio.playbackRate=speed;document.getElementById('speedDisplay').textContent=speed+'x';document.querySelectorAll('.speed-btn').forEach(btn=>{btn.classList.toggle('active',parseFloat(btn.textContent)===speed);});}
 function formatTime(s){if(!s||isNaN(s))return'0:00';return Math.floor(s/60)+':'+Math.floor(s%60).toString().padStart(2,'0');}
 </script>
+
+<script>
+(function() {
+  var params = new URLSearchParams(window.location.search);
+  var fromGarden = params.get('from') === 'garden';
+  var sermonId   = params.get('sermonId'); // e.g. 'feb22_mon'
+  var profileIdx = params.get('profile');
+  if (!fromGarden || !sermonId || profileIdx === null) return;
+
+  // 상단 바
+  var bar = document.createElement('div');
+  bar.style.cssText = 'position:fixed;top:0;left:0;right:0;z-index:9999;background:rgba(61,44,110,0.93);backdrop-filter:blur(6px);padding:10px 16px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 2px 10px rgba(0,0,0,0.25);';
+  var backBtn = document.createElement('button');
+  backBtn.textContent = '← 정원으로';
+  backBtn.style.cssText = "background:rgba(255,255,255,0.18);border:none;border-radius:16px;padding:8px 18px;color:#fff;font-family:'Fredoka One',cursive;font-size:15px;cursor:pointer;";
+  backBtn.onclick = function(){ window.location.href = 'garden.html'; };
+  var statusEl = document.createElement('div');
+  statusEl.id = 'gardenStatus';
+  statusEl.style.cssText = "font-family:'Nunito',sans-serif;font-weight:800;font-size:13px;color:rgba(255,255,255,0.75);text-align:right;max-width:200px;";
+
+  // 요일 표시
+  var dayMap = {mon:'월요일',tue:'화요일',wed:'수요일',thu:'목요일',fri:'금요일'};
+  var dayPart = sermonId.split('_')[1];
+  var dayName = dayMap[dayPart] || '';
+  statusEl.textContent = '🎧 ' + dayName + ' 미션 · 끝까지 들으면 🍎!';
+
+  bar.appendChild(backBtn);
+  bar.appendChild(statusEl);
+  document.body.prepend(bar);
+
+  var wrapper = document.querySelector('.wrapper');
+  if (wrapper) wrapper.style.paddingTop = '70px';
+
+  // 완료 버튼
+  var doneBtn = document.createElement('button');
+  doneBtn.textContent = '🍎 사과 받기!';
+  doneBtn.disabled = true;
+  doneBtn.style.cssText = "display:block;width:100%;margin:16px 0 32px;padding:18px;border-radius:20px;border:none;background:linear-gradient(135deg,#9b6dff,#6b9fff);color:#fff;font-family:'Fredoka One',cursive;font-size:20px;cursor:not-allowed;opacity:0.4;transition:all 0.3s;box-shadow:0 4px 14px rgba(107,80,200,0.3);";
+  doneBtn.onclick = function(){
+    if (!doneBtn.disabled) {
+      window.location.href = 'garden.html?completed=' + sermonId + '&profile=' + profileIdx;
+    }
+  };
+
+  // 이미 완료?
+  var alreadyDone = false;
+  try {
+    var data = JSON.parse(localStorage.getItem('jess_garden_v3')) || {profiles:[]};
+    var p = data.profiles[parseInt(profileIdx)];
+    if (p && p.missions && p.missions[sermonId]) { alreadyDone = true; }
+  } catch(e){}
+
+  if (alreadyDone) {
+    doneBtn.disabled = false;
+    doneBtn.style.opacity = '1';
+    doneBtn.style.cursor = 'pointer';
+    doneBtn.style.background = 'linear-gradient(135deg,#6bcb77,#3a9e40)';
+    doneBtn.textContent = '✅ 완료! 정원으로 돌아가기';
+    statusEl.textContent = '✅ ' + dayName + ' 미션 완료했어요!';
+    statusEl.style.color = '#6bcb77';
+  }
+
+  function hookAudio(){
+    var audio = document.getElementById('audio');
+    if (!audio || alreadyDone) return;
+    audio.addEventListener('timeupdate', function(){
+      if (!audio.duration) return;
+      var pct = Math.round(audio.currentTime / audio.duration * 100);
+      statusEl.textContent = '🎧 ' + pct + '% 들었어요';
+      if (pct >= 85) {
+        statusEl.textContent = '🍎 다 들었어요! 아래 버튼!';
+        statusEl.style.color = '#f5c842';
+        doneBtn.disabled = false;
+        doneBtn.style.opacity = '1';
+        doneBtn.style.cursor = 'pointer';
+        doneBtn.style.transform = 'scale(1.03)';
+      }
+    });
+    audio.addEventListener('ended', function(){
+      statusEl.textContent = '🍎 다 들었어요! 아래 버튼!';
+      statusEl.style.color = '#f5c842';
+      doneBtn.disabled = false;
+      doneBtn.style.opacity = '1';
+      doneBtn.style.cursor = 'pointer';
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function(){
+      var w = document.querySelector('.wrapper');
+      if (w) w.appendChild(doneBtn);
+      hookAudio();
+    });
+  } else {
+    var w = document.querySelector('.wrapper');
+    if (w) w.appendChild(doneBtn);
+    hookAudio();
+  }
+})();
+</script>
 </body>
 </html>

@@ -30,10 +30,10 @@
   .header h1 { font-family:'Fredoka One',cursive; font-size:42px; color:var(--text); line-height:1.05; margin-bottom:10px; }
   .header h1 span{color:#9b6dff}
   .header p { font-size:15px; color:var(--soft); font-weight:600; }
-  .stats-row { display:flex; gap:12px; margin-bottom:32px; animation:fadeUp 0.6s ease 0.2s both; }
-  .stat-card { flex:1; background:white; border-radius:18px; padding:16px; text-align:center; box-shadow:0 3px 14px rgba(100,80,180,0.08); }
-  .stat-num { font-family:'Fredoka One',cursive; font-size:28px; color:var(--text); line-height:1; }
-  .stat-label { font-size:13px; color:var(--soft); font-weight:700; margin-top:4px; }
+  .stats-row { display:flex; gap:8px; margin-bottom:20px; animation:fadeUp 0.6s ease 0.5s both; }
+  .stat-card { flex:1; background:white; border-radius:14px; padding:10px 8px; text-align:center; box-shadow:0 3px 14px rgba(100,80,180,0.08); }
+  .stat-num { font-family:'Fredoka One',cursive; font-size:16px; color:var(--text); line-height:1; }
+  .stat-label { font-size:11px; color:var(--soft); font-weight:700; margin-top:3px; }
   .section-title { font-family:'Fredoka One',cursive; font-size:20px; color:var(--text); margin-bottom:16px; display:flex; align-items:center; gap:8px; animation:fadeUp 0.6s ease 0.3s both; }
   .sermons-grid { display:flex; flex-direction:column; gap:14px; }
   .sermon-card { background:white; border-radius:22px; padding:20px 22px; box-shadow:0 4px 18px rgba(100,80,180,0.08); text-decoration:none; color:inherit; display:flex; align-items:center; gap:16px; transition:transform 0.2s,box-shadow 0.2s; animation:fadeUp 0.5s ease both; position:relative; overflow:hidden; }
@@ -63,6 +63,30 @@
   .footer span{color:#ff8c69}
   @keyframes fadeDown{from{opacity:0;transform:translateY(-24px)}to{opacity:1;transform:translateY(0)}}
   @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+  /* JESS Garden 버튼 */
+  .garden-banner {
+    display:flex; align-items:center; gap:16px;
+    background:white;
+    border-radius:22px; padding:18px 22px;
+    text-decoration:none; color:var(--text);
+    box-shadow:0 4px 18px rgba(100,80,180,0.08);
+    border:2.5px solid #6BCF70;
+    transition:transform 0.2s, box-shadow 0.2s;
+    animation:fadeUp 0.5s ease 0.15s both;
+    margin-bottom:16px;
+    position:relative; overflow:hidden;
+  }
+  .garden-banner::before { content:''; }
+  .garden-banner:hover { transform:translateY(-3px); box-shadow:0 8px 28px rgba(100,80,180,0.14); }
+  .garden-icon { font-size:44px; flex-shrink:0; animation:sunPulse 3s ease-in-out infinite; }
+  @keyframes sunPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+  .garden-text { flex:1; }
+  .garden-title { font-family:'Fredoka One',cursive; font-size:32px; color:var(--text); line-height:1.1; margin-bottom:4px; }
+  .garden-sub { font-size:13px; color:var(--soft); font-weight:700; }
+  .garden-arrow { font-size:26px; color:var(--soft); flex-shrink:0; transition:transform 0.2s; }
+  .garden-banner:hover .garden-arrow { transform:translateX(4px); }
+  .garden-new-badge { position:absolute; top:10px; right:14px; background:var(--gold); color:#5a3e00; font-size:9px; font-weight:800; padding:3px 8px; border-radius:8px; letter-spacing:0.5px; text-transform:uppercase; }
+
 </style>
 </head>
 <body>
@@ -77,6 +101,19 @@
     <h1>Sermon<br><span>Takeaways!</span></h1>
     <p>매주 설교 요약 · 기도문 · 음성</p>
   </div>
+
+
+  <a class="garden-banner" href="garden.html">
+    <div class="garden-new-badge">🌟 NEW</div>
+    <div class="garden-icon">🌳</div>
+    <div class="garden-text">
+      <div class="garden-title">JESS Garden</div>
+      <div class="garden-sub">나의 나무에 사과를 심어봐요! 🍎</div>
+    </div>
+    <div class="garden-arrow">›</div>
+  </a>
+
+  <div class="section-title">📖 All Sermons</div>
 
   <div class="stats-row">
     <div class="stat-card">
@@ -93,11 +130,8 @@
     </div>
   </div>
 
-  <div class="section-title">📖 All Sermons</div>
-
   <div class="sermons-grid" id="sermonsGrid">
 
-    <!-- 최신이 맨 위 -->
     <a class="sermon-card" href="sermon_mar29.html" style="animation-delay:0.1s" data-visible-from="2026-03-29">
       <div class="latest-badge">✨ Latest</div>
       <div class="card-date-block">
@@ -206,27 +240,6 @@
       </div>
       <div class="arrow">›</div>
     </a>
-
-    <!-- 다음 주 추가 예시:
-    <a class="sermon-card" href="sermon_mar8.html" style="animation-delay:0.1s">
-      <div class="latest-badge">✨ Latest</div>
-      <div class="card-date-block">
-        <div class="card-month">Mar</div>
-        <div class="card-day">08</div>
-        <div class="card-year">2026</div>
-      </div>
-      <div class="card-content">
-        <div class="card-title">"설교 제목"</div>
-        <div class="card-verse">성경 구절</div>
-        <div class="card-tags">
-          <span class="tag tag-audio">🎧 Audio</span>
-          <span class="tag tag-pdf">📄 PDF</span>
-          <span class="tag tag-prayer">🙏 Prayer</span>
-        </div>
-      </div>
-      <div class="arrow">›</div>
-    </a>
-    -->
 
   </div>
 
