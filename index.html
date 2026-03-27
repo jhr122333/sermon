@@ -103,7 +103,7 @@
   </div>
 
 
-  <a class="garden-banner" href="garden.html">
+  <a class="garden-banner" href="garden.html" id="gardenBanner" data-visible-from="2026-03-29" style="display:none">
     <div class="garden-new-badge">🌟 NEW</div>
     <div class="garden-icon">🌳</div>
     <div class="garden-text">
@@ -265,6 +265,10 @@
     }
   });
   document.getElementById('totalCount').textContent = visibleCount;
+  const gardenBanner = document.getElementById('gardenBanner');
+  if (gardenBanner && today >= gardenBanner.getAttribute('data-visible-from')) {
+    gardenBanner.style.display = 'flex';
+  }
 </script>
 </body>
 </html>
