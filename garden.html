@@ -1045,6 +1045,22 @@ document.addEventListener('keydown',function(e){
   if (e.key==='Escape') closeModal();
   if (e.key==='Enter'&&document.getElementById('addModal').classList.contains('open')) createProfile();
 });
+
+// ── URL 복귀 처리: 설교 페이지에서 "사과 받기" 후 돌아올 때 ──
+(function checkReturn() {
+  var params = new URLSearchParams(window.location.search);
+  var sid    = params.get('completed');
+  var pidx   = params.get('profile');
+  if (!sid || pidx === null) return;
+  var idx = parseInt(pidx, 10);
+  var data = load();
+  if (!data.profiles[idx]) return;
+  // URL 파라미터 제거 (뒤로가기 시 중복 방지)
+  window.history.replaceState({}, '', 'garden.html');
+  // 해당 프로필의 가든 화면 열고 미션 완료 처리
+  openGarden(idx);
+  setTimeout(function() { completeMission(sid); }, 500);
+})();
 </script>
 </body>
 </html>
