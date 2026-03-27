@@ -950,14 +950,20 @@ function renderMissions(p) {
   list.innerHTML = '';
   var today = todayStr();
 
-  var avail = SERMONS.filter(function(s){ return s.date <= today; });
-  if (!avail.length) {
+  // 이번 주 일요일 기준의 설교만 추출 (가장 최근 일요일이 오늘 이전인 것)
+  var thisWeekBase = null;
+  for (var i = SERMONS_BASE.length - 1; i >= 0; i--) {
+    if (SERMONS_BASE[i].sundayDate <= today) { thisWeekBase = SERMONS_BASE[i]; break; }
+  }
+  if (!thisWeekBase) {
     list.innerHTML='<p class="no-ms">아직 미션이 없어요.<br>월요일부터 미션이 시작돼요! 🙏</p>';
     return;
   }
 
-  // 최근 10개 (이번주+지난주)
-  var recent = avail.slice(-10);
+  // 이번 주 5개 미션만 (월~금, 오늘 이전 포함 미래 포함)
+  var recent = SERMONS.filter(function(s){
+    return s.id.indexOf(thisWeekBase.id + '_') === 0;
+  });
 
   // 설교 기준으로 그룹핑
   var groupOrder = [];
