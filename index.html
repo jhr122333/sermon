@@ -40,11 +40,9 @@
   .sermon-card::before { content:''; position:absolute; left:0; top:0; bottom:0; width:4px; border-radius:22px 0 0 22px; }
   .sermon-card:hover { transform:translateY(-3px); box-shadow:0 8px 28px rgba(100,80,180,0.15); }
   .sermon-card:hover .arrow{transform:translateX(4px)}
-  .sermon-card:nth-child(1)::before{background:#6bc4a6}
-  .sermon-card:nth-child(2)::before{background:#9b6dff}
-  .sermon-card:nth-child(3)::before{background:#ff8c69}
-  .sermon-card:nth-child(4)::before{background:#f5c842}
-  .sermon-card:nth-child(n+5)::before{background:#6b9fff}
+  .sermon-card.month-apr::before{background:#ff85a1}
+  .sermon-card.month-mar::before{background:#6bc4a6}
+  .sermon-card.month-feb::before{background:#f5c842}
   .card-date-block { text-align:center; flex-shrink:0; background:linear-gradient(135deg,#f0e8ff,#e8f4ff); border-radius:14px; padding:10px 14px; min-width:64px; }
   .card-month { font-size:10px; font-weight:800; text-transform:uppercase; color:var(--soft); letter-spacing:1px; }
   .card-day { font-family:'Fredoka One',cursive; font-size:26px; color:var(--text); line-height:1; }
@@ -132,7 +130,7 @@
 
   <div class="sermons-grid" id="sermonsGrid">
 
-    <a class="sermon-card" href="sermon_apr26.html" style="animation-delay:0.1s" data-visible-from="2026-04-26">
+    <a class="sermon-card month-apr" href="sermon_apr26.html" style="animation-delay:0.1s" data-visible-from="2026-04-26">
       <div class="latest-badge">✨ Latest</div>
       <div class="card-date-block">
         <div class="card-month">Apr</div>
@@ -151,7 +149,7 @@
       <div class="arrow">›</div>
     </a>
 
-    <a class="sermon-card" href="sermon_apr19.html" style="animation-delay:0.12s" data-visible-from="2026-04-19">
+    <a class="sermon-card month-apr" href="sermon_apr19.html" style="animation-delay:0.12s" data-visible-from="2026-04-19">
       <div class="card-date-block">
         <div class="card-month">Apr</div>
         <div class="card-day">19</div>
@@ -169,7 +167,7 @@
       <div class="arrow">›</div>
     </a>
 
-    <a class="sermon-card" href="sermon_apr12.html" style="animation-delay:0.14s" data-visible-from="2026-04-12">
+    <a class="sermon-card month-apr" href="sermon_apr12.html" style="animation-delay:0.14s" data-visible-from="2026-04-12">
       <div class="card-date-block">
         <div class="card-month">Apr</div>
         <div class="card-day">12</div>
@@ -187,7 +185,7 @@
       <div class="arrow">›</div>
     </a>
 
-    <a class="sermon-card" href="sermon_apr5.html" style="animation-delay:0.16s" data-visible-from="2026-04-05">
+    <a class="sermon-card month-apr" href="sermon_apr5.html" style="animation-delay:0.16s" data-visible-from="2026-04-05">
       <div class="card-date-block">
         <div class="card-month">Apr</div>
         <div class="card-day">05</div>
@@ -205,7 +203,7 @@
       <div class="arrow">›</div>
     </a>
 
-    <a class="sermon-card" href="sermon_mar29.html" style="animation-delay:0.1s" data-visible-from="2026-03-29">
+    <a class="sermon-card month-mar" href="sermon_mar29.html" style="animation-delay:0.1s" data-visible-from="2026-03-29">
       <div class="latest-badge" style="display:none">✨ Latest</div>
       <div class="card-date-block">
         <div class="card-month">Mar</div>
@@ -224,7 +222,7 @@
       <div class="arrow">›</div>
     </a>
 
-    <a class="sermon-card" href="sermon_mar22.html" style="animation-delay:0.15s">
+    <a class="sermon-card month-mar" href="sermon_mar22.html" style="animation-delay:0.15s">
       <div class="card-date-block">
         <div class="card-month">Mar</div>
         <div class="card-day">22</div>
@@ -242,7 +240,7 @@
       <div class="arrow">›</div>
     </a>
 
-    <a class="sermon-card" href="sermon_mar15.html" style="animation-delay:0.2s">
+    <a class="sermon-card month-mar" href="sermon_mar15.html" style="animation-delay:0.2s">
       <div class="card-date-block">
         <div class="card-month">Mar</div>
         <div class="card-day">15</div>
@@ -260,7 +258,7 @@
       <div class="arrow">›</div>
     </a>
 
-    <a class="sermon-card" href="sermon_mar8.html" style="animation-delay:0.2s">
+    <a class="sermon-card month-mar" href="sermon_mar8.html" style="animation-delay:0.2s">
       <div class="card-date-block">
         <div class="card-month">Mar</div>
         <div class="card-day">08</div>
@@ -278,7 +276,7 @@
       <div class="arrow">›</div>
     </a>
 
-    <a class="sermon-card" href="sermon_mar1.html" style="animation-delay:0.2s">
+    <a class="sermon-card month-mar" href="sermon_mar1.html" style="animation-delay:0.2s">
       <div class="card-date-block">
         <div class="card-month">Mar</div>
         <div class="card-day">01</div>
@@ -296,7 +294,7 @@
       <div class="arrow">›</div>
     </a>
 
-    <a class="sermon-card" href="sermon_feb22.html" style="animation-delay:0.2s">
+    <a class="sermon-card month-feb" href="sermon_feb22.html" style="animation-delay:0.2s">
       <div class="card-date-block">
         <div class="card-month">Feb</div>
         <div class="card-day">22</div>
